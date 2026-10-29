@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4e9e4">
+<meta name="description" content="Одно очень личное расследование. Два сюрприза. И ты — главная героиня.">
+<title>Дело о пропавшем сюрпризе</title>
+<style>
+:root{--paper:#fffaf1;--ink:#493e3b;--muted:#88766e;--pink:#b7586b;--line:#ddcfc3;--green:#65775d}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:Georgia,'Times New Roman',serif;background:#f2e7e1;background-image:radial-gradient(#bca89a35 .7px,transparent .7px);background-size:7px 7px}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b7586b;outline-offset:4px}button:disabled{cursor:default;opacity:.5}
+header{max-width:1120px;margin:auto;padding:25px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #b8a79865;gap:15px}
+.brand{font:11px/1.6 Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:12px}.brand b{font:28px Georgia;color:var(--pink)}
+.sound{background:transparent;border:1px solid #cdbcb1;border-radius:30px;padding:10px 15px;font:11px Arial;color:var(--ink)}
+main{max-width:1080px;margin:0 auto;padding:48px 30px 25px}.eyebrow{font:10px/1.6 Arial,sans-serif;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+.layout{display:grid;grid-template-columns:1.03fr 1fr;gap:62px;align-items:center;min-height:570px}h1{font-weight:normal;font-size:clamp(42px,5.4vw,66px);line-height:1.02;letter-spacing:-2px;margin:25px 0}h1 em{font-weight:normal;color:var(--pink)}h2{font-size:35px;line-height:1.14;font-weight:normal;margin:18px 0}h3{font-weight:normal;font-size:24px;margin:12px 0}
+.intro{font:15px/1.85 Arial,sans-serif;color:var(--muted);max-width:380px}.primary{background:var(--pink);color:#fffaf1;border:0;border-radius:5px;padding:17px 24px;font:13px Arial,sans-serif;letter-spacing:.3px;box-shadow:0 5px 0 #98465918;min-height:48px}.primary:hover{background:#a34c60}.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:5px;padding:13px 18px;font:13px Arial;min-height:44px}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:26px 0 15px}.tiny{font:11px/1.7 Arial;color:var(--muted)}.hand{font-style:italic;font-size:19px;color:var(--pink);transform:rotate(-4deg);display:inline-block;margin-top:15px}
+.board{position:relative;padding:28px 18px 35px;isolation:isolate}.folder{background:#d9b99b;border-radius:6px;min-height:420px;transform:rotate(3deg);padding:28px 22px;box-shadow:3px 15px 35px #614a3922}.folder:before{content:'ЛИЧНОЕ ДЕЛО';position:absolute;top:-20px;left:0;padding:10px 20px;background:#d9b99b;border-radius:6px 6px 0 0;font:10px Arial;letter-spacing:2px}
+.paper{background:var(--paper);padding:27px;box-shadow:0 4px 12px #5d483214;position:relative}.tape{position:absolute;width:95px;height:27px;background:#e9ce9690;top:-12px;left:calc(50% - 48px);transform:rotate(-5deg)}
+.stamp{display:inline-block;color:var(--pink);border:2px solid var(--pink);padding:7px 11px;font:12px Arial;letter-spacing:2px;transform:rotate(-9deg);margin:15px 0}
+.envelope{width:150px;height:100px;background:#efcfcd;margin:30px auto 22px;position:relative;border:1px solid #dcb0b0;box-shadow:3px 5px 0 #ddc7b24d}.envelope:before{content:'';position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 65%);background:#f5ddda}.envelope:after{content:'♥';position:absolute;top:35px;left:60px;font-size:28px;color:var(--pink)}
+.postit{position:absolute;right:-9px;bottom:8px;background:#f4e4ad;padding:19px 23px;transform:rotate(-7deg);font-size:19px;font-style:italic;box-shadow:2px 5px 8px #604b2a15;z-index:2}.star{position:absolute;right:15px;top:0;font-size:47px;color:var(--pink);transform:rotate(14deg)}
+.strip{display:flex;gap:22px;flex-wrap:wrap;border-top:1px solid #b8a79865;padding:22px 0;margin-top:25px;font:10px Arial;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase}
+.workspace{max-width:700px;margin:auto}.progress{display:flex;gap:7px;margin:0 0 30px}.progress span{height:4px;background:#dbcac1;flex:1;border-radius:3px}.progress .done{background:var(--pink)}.sheet{padding:36px;background:var(--paper);border:1px solid #e6d9cc;box-shadow:0 12px 35px #6446340a;border-radius:3px}.body{font:15px/1.8 Arial;color:var(--muted)}.tag{display:inline-block;padding:7px 9px;background:#eee9dd;color:var(--green);font:10px Arial;letter-spacing:1px;border-radius:3px}
+label{font:12px Arial;display:block;margin:20px 0 9px}input[type=text]{width:100%;border:1px solid var(--line);background:#fffdf8;border-radius:5px;padding:15px;color:var(--ink);font:16px Arial}input[type=range]{width:100%;accent-color:var(--pink);min-height:40px}
+.feedback{font:13px/1.6 Arial;color:var(--pink);min-height:22px;margin-top:10px}.hintbox{font:13px/1.8 Arial;background:#f4eddd;padding:14px;margin:12px 0;border-radius:4px}.clues{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:25px 0}.clue{border:1px dashed #cebdb0;background:#faf2e7;padding:19px 8px;min-height:125px;border-radius:3px;color:var(--ink);font:12px/1.6 Arial}.clue strong{font:27px Georgia;display:block;margin-bottom:12px}.clue.open{background:#f5e4e4;border-color:#c89398}
+.quote{font-size:23px;line-height:1.6;padding:23px;border-left:2px solid #c48b92;background:#f8eee7;margin:22px 0}.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.chip{background:white;border:1px solid #d7c4b9;padding:12px;border-radius:4px;font:14px Arial;color:var(--ink)}.slot{min-height:66px;background:#f1e9df;border:1px dashed #c7b4a3;border-radius:5px;padding:12px;font:16px/1.7 Arial}
+.dial{width:190px;height:190px;border:1px solid #d7bba9;border-radius:50%;margin:23px auto;position:relative;background:repeating-conic-gradient(#ddc4b2 0deg 1deg,transparent 1deg 30deg),#f6ece0;display:grid;place-items:center}.dial:before{content:'▼';position:absolute;top:-19px;color:var(--pink)}.dial-inner{width:140px;height:140px;border:1px dashed #c99d95;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:55px;color:var(--pink);transition:transform .2s;background:#fff8ee}.dial-label{text-align:center;font:12px Arial;color:var(--muted)}
+footer{max-width:1080px;margin:0 auto;padding:22px 30px 30px;display:flex;justify-content:space-between;gap:15px;font:10px Arial;letter-spacing:1px;color:var(--muted)}footer button{border:0;background:none;color:var(--muted);font:10px Arial;text-decoration:underline;padding:0}
+.photo{max-width:100%;max-height:350px;object-fit:cover;border:10px solid white;box-shadow:0 4px 15px #45302c20;transform:rotate(-2deg);margin:15px auto;display:block}.seal{text-align:center;font-size:65px;color:var(--pink);margin:15px}.confetti{position:fixed;top:-20px;pointer-events:none;animation:fall 3.6s ease-in forwards;z-index:10;font-size:20px}
+@keyframes fall{to{transform:translateY(110vh) rotate(330deg);opacity:0}}@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}#app{animation:appear .4s ease}
+@media(max-width:700px){header{padding:18px 20px}.brand{font-size:9px;letter-spacing:1.5px}.sound{font-size:10px;padding:9px}main{padding:30px 20px 15px}.layout{grid-template-columns:1fr;gap:25px}.intro{max-width:none}h1{font-size:49px}.board{max-width:390px;width:100%;margin:auto;padding:22px 15px 35px}.folder{min-height:350px}.sheet{padding:25px 20px}h2{font-size:31px}.strip{gap:14px;font-size:9px}.clues{gap:7px}.clue{font-size:11px}.postit{right:0;font-size:17px}footer{padding:20px;font-size:9px}.quote{font-size:20px;padding:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.confetti{display:none}}
+</style>
+</head>
+<body>
+<header><div class="brand"><b>♡</b><span>Бюро особенных моментов<br><span style="color:#9b867c">Отдел счастливых совпадений</span></span></div><button class="sound" id="sound" aria-pressed="false">♪ Звук: выкл.</button></header>
+<main id="app"></main>
+<footer><span>СОСТАВЛЕНО С ЛЮБОВЬЮ · ДЕЛО № 01</span><button id="reset">Начать заново</button></footer>
+<script src="config.js"></script>
+<script>
+const C=window.CASE_CONFIG;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s).trim().toLocaleLowerCase('ru').replace(/ё/g,'е').replace(/\s+/g,' ');
+const KEY='birthday-case-v1';
+let state={step:0,hints:{},opened:[],words:[],dial:0}, sound=false,ctx;
+try{let saved=JSON.parse(localStorage.getItem(KEY));if(saved&&Number.isInteger(saved.step)&&saved.step>=0&&saved.step<=7)state={...state,...saved}}catch{}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch{}}
+function ping(){if(!sound)return;try{ctx ||=new (window.AudioContext||window.webkitAudioContext)();ctx.resume();let o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.setValueAtTime(660,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(990,ctx.currentTime+.16);g.gain.setValueAtTime(.04,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.3);o.start();o.stop(ctx.currentTime+.3)}catch{}}
+$('sound').onclick=()=>{sound=!sound;$('sound').textContent='♪ Звук: '+(sound?'вкл.':'выкл.');$('sound').setAttribute('aria-pressed',sound);ping()};
+$('reset').onclick=()=>{if(confirm('Сбросить улики и начать расследование заново?')){state={step:0,hints:{},opened:[],words:[],dial:0};save();render()}};
+function go(step){state.step=step;save();ping();render();window.scrollTo({top:0,behavior:'smooth'});const h=document.querySelector('h1,h2');h?.setAttribute('tabindex','-1');h?.focus({preventScroll:true})}
+const hints={
+1:['Здесь нет экзамена — только ваша маленькая история.','Можно спросить главного подозреваемого. Он на твоей стороне.','Попроси его назвать точный ответ: доступ выдаётся по любви.'],
+2:['Нажми на все три карточки. На каждой есть фрагмент сообщения.','Номера на карточках задают порядок слов.','Нужный порядок: ИЩИ → КОРОБКУ → ОТ РОУТЕРА.'],
+3:['Упаковка может притворяться совсем другим подарком.','Осмотри тумбочку. Нужна коробка от роутера.','Открой коробку. Вместе с подарком там должна быть записка с кодом.'],
+5:['Сердечко должно смотреть точно вверх.','Двигай ползунок, пока поворот не составит 180°.','Поставь ползунок на отметку 6 из 12.'],
+6:['Нужное место находится в машине.','Это отсек для вещей, а не для пассажиров.','Открой багажник. Код — на записке рядом с подарком.']
+};
+function help(){if(!hints[state.step])return '';let n=state.hints[state.step]||0;return '<button class="secondary" id="hint">♡ Нужна подсказка'+(n?' · '+n+'/3':'')+'</button><div id="hints" aria-live="polite">'+hints[state.step].slice(0,n).map(x=>'<div class="hintbox">'+x+'</div>').join('')+'</div>'}
+function bindHelp(){let b=$('hint');if(b)b.onclick=()=>{state.hints[state.step]=Math.min(3,(state.hints[state.step]||0)+1);save();$('hints').innerHTML=hints[state.step].slice(0,state.hints[state.step]).map(x=>'<div class="hintbox">'+x+'</div>').join('');b.textContent='♡ Подсказки · '+state.hints[state.step]+'/3';b.disabled=state.hints[state.step]===3}}
+function shell(label,title,body){return '<div class="workspace"><div class="progress" aria-label="Этап '+state.step+' из 7">'+Array.from({length:7},(_,i)=>'<span class="'+(i<state.step?'done':'')+'"></span>').join('')+'</div><article class="sheet"><span class="eyebrow">'+label+'</span><h2>'+title+'</h2>'+body+'</article><div class="strip">♡ Ты справляешься прекрасно <span>Дело открыто только для тебя</span></div></div>'}
+function codeForm(title){return '<form id="codeform"><label for="code">'+title+'</label><input id="code" type="text" autocomplete="off" placeholder="Кодовое слово" required><div class="feedback" id="feedback" role="status"></div><div class="actions"><button class="primary">Проверить код →</button></div></form>'+help()}
+function bindCode(expected,next){$('codeform').onsubmit=e=>{e.preventDefault();if(norm($('code').value)===norm(expected))go(next);else $('feedback').textContent='Пока не совпало. Проверь слово на записке — регистр букв не важен.'}}
+function render(){
+let html='';
+if(state.step===0){
+html='<div class="layout"><section><span class="eyebrow">Совершенно секретно · Только для тебя</span><h1>Дело о<br>пропавшем<br><em>сюрпризе.</em></h1><p class="intro">'+esc(C.name)+', сегодня ты — главная героиня.<br>Два загадочных объекта. Несколько улик.<br>И один очень влюблённый подозреваемый.</p><div class="actions"><button class="primary" id="start">Открыть дело <span style="margin-left:25px">↗</span></button></div><div class="tiny">15–20 минут приключения · телефон и немного любопытства</div><span class="hand">Самые важные улики — рядом ♡</span></section><div class="board" aria-hidden="true"><span class="star">✧</span><div class="folder"><div class="paper"><span class="tape"></span><div class="eyebrow">Архив счастливых историй</div><div class="envelope"></div><h3 style="text-align:center">Некоторые секреты<br>стоит раскрыть.</h3><div style="text-align:center"><span class="stamp">ОСОБЫЙ СЛУЧАЙ</span></div><div class="tiny" style="border-top:1px dashed #d4c4b3;padding-top:15px">ОБЪЕКТЫ: 02<br>СТАТУС: ОЖИДАЮТ ОБНАРУЖЕНИЯ<br>МОТИВ: ♡ ♡ ♡</div></div></div><div class="postit">Имениннице.<br>Лично в руки ♡</div></div></div><div class="strip"><span>01 / Собирай улики</span><span>02 / Разгадывай шифры</span><span>03 / Находи сюрпризы</span></div>';
+}else if(state.step===1){
+html=shell('01 / Допуск к расследованию','Агент '+esc(C.name)+',<br>ты нам нужна.', '<p class="body">Из отдела сюрпризов исчезли два объекта: «Голос» и «Напарник». Последним их видел человек, который сегодня особенно подозрительно улыбается.</p><div class="quote">Твоя суперсила — замечать маленькие вещи, в которых прячется большая любовь.</div>'+(C.question?'<p class="body">'+esc(C.question)+'</p>'+codeForm('Ответ для получения допуска'):'<p class="body">Торжественно обещаю доверять интуиции, принимать подарки и при необходимости обнимать главного подозреваемого.</p><div class="actions"><button class="primary" id="pledge">Обещаю. Выдавайте дело →</button></div>'));
+}else if(state.step===2){
+const texts=['01 · ИЩИ','02 · КОРОБКУ','03 · ОТ РОУТЕРА'];
+html=shell('02 / Первая зацепка','У вещей есть<br>свои маленькие тайны.','<p class="body">Открой три улики. Затем собери сообщение в порядке номеров — нажимай на слова ниже.</p><div class="clues">'+[2,0,1].map((x,i)=>'<button class="clue '+(state.opened.includes(x)?'open':'')+'" data-clue="'+x+'"><strong>'+['✉','⌕','♡'][i]+'</strong>'+(state.opened.includes(x)?texts[x]:'Улика '+(i+1)+'<br>Нажми, чтобы открыть')+'</button>').join('')+'</div><div class="slot" id="sentence" aria-live="polite">'+(state.words.map(i=>['ИЩИ','КОРОБКУ','ОТ РОУТЕРА'][i]).join(' ')||'Здесь появится твоё сообщение…')+'</div><div class="chips">'+(state.opened.length===3?[1,2,0].map(i=>'<button class="chip" data-word="'+i+'" '+(state.words.includes(i)?'disabled':'')+'>'+['ИЩИ','КОРОБКУ','ОТ РОУТЕРА'][i]+'</button>').join(''):'')+'</div><div class="feedback" id="feedback" role="status"></div><div class="actions"><button class="primary" id="solve">Проверить версию →</button><button class="secondary" id="clear">Очистить</button></div>'+help());
+}else if(state.step===3){
+html=shell('03 / Объект «Голос»','Сигнал идёт<br>из необычного места.','<span class="tag">ШИФР РАСШИФРОВАН</span><div class="quote">Ищи там, где обещают Wi-Fi, но сегодня спрятали кое-что для твоего голоса.</div><p class="body">След ведёт к тумбочке. Проверь коробку — её содержимое может удивить. На записке рядом с находкой есть код.</p>'+codeForm('Что написано на секретной записке?'));
+}else if(state.step===4){
+html=shell('04 / Проверка оборудования','Твой голос.<br>Теперь крупным планом.','<span class="tag">ОБЪЕКТ «ГОЛОС» НАЙДЕН ✓</span><p class="body">Да, это твой микрофон DJI! Для идей, историй и моментов, которыми хочется делиться.</p><p class="body">Маленькая миссия: запиши на камеру репортаж с места событий. Если микрофон ещё нужно подключить, можно просто прочитать вслух:</p><div class="quote">«Веду расследование в свой день рождения. Первый подарок обнаружен. Главный подозреваемый слишком красивый, поэтому пока отпущен».</div><div class="actions"><button class="primary" id="report">Репортаж готов →</button><button class="secondary" id="skip">Запишу позже</button></div><p class="tiny">Запись остаётся у тебя. Сайт не включает камеру и ничего не загружает.</p>');
+}else if(state.step===5){
+html=shell('05 / Досье неизвестного','Каждому детективу<br>нужен напарник.','<p class="body">Особые приметы: маленький рост, большая харизма, подозрительная любовь к бананам. Видели в компании твоего парня.</p><div class="dial"><div class="dial-inner" id="dialheart">♥</div></div><div class="dial-label">Совмести сердечко с указателем: поверни его верхушкой вверх.</div><label for="dial">Поворот шифровального диска: <span id="dialvalue"></span></label><input id="dial" type="range" min="0" max="12" step="1" value="'+state.dial+'"><div class="feedback" id="feedback" role="status"></div><div class="actions"><button class="primary" id="decode">Расшифровать послание →</button></div>'+help());
+}else if(state.step===6){
+html=shell('06 / Последняя координата','Он уже ждёт<br>вашей встречи.','<span class="tag">ПОСЛАНИЕ РАСШИФРОВАНО</span><div class="quote">«Я там, где путешествуют чемоданы, но не сидят пассажиры. Забери меня — я хочу на праздник!»</div><p class="body">Возьми ключи от машины и главного подозреваемого с собой. Найди напарника и прочитай последнюю записку.</p>'+codeForm('Последнее кодовое слово'));
+}else{
+html=shell('07 / Дело закрыто','Виновник установлен.<br><em style="color:var(--pink)">Мотив — любовь.</em>','<div class="seal">♡</div><span class="tag">ДВА СЮРПРИЗА · ОДНА ЛЮБИМАЯ ГЕРОИНЯ</span>'+(C.photo?'<img class="photo" src="'+esc(C.photo)+'" alt="Наш счастливый момент">':'')+'<p class="body" style="white-space:pre-line;margin-top:25px">'+esc(C.message)+'</p><p class="hand">'+esc(C.sender)+'</p><div class="quote">Приговор: обнять.<br>Обжалованию не подлежит.</div><div class="actions"><button class="primary" id="celebrate">Ещё немного волшебства ✧</button></div><p class="tiny">DJI найден. Миньон дома. Самое ценное — вы рядом.</p>');
+}
+$('app').innerHTML=html;
+bindHelp();
+if(state.step===0)$('start').onclick=()=>go(1);
+if(state.step===1){if(C.question){$('codeform').onsubmit=e=>{e.preventDefault();if(C.answers.some(a=>norm(a)===norm($('code').value)))go(2);else $('feedback').textContent='Интересная версия! Попробуй ещё или спроси своего сообщника.'}}else $('pledge').onclick=()=>go(2)}
+if(state.step===2){
+document.querySelectorAll('[data-clue]').forEach(b=>b.onclick=()=>{let n=+b.dataset.clue;if(!state.opened.includes(n)){state.opened.push(n);save();ping();render()}});
+document.querySelectorAll('[data-word]').forEach(b=>b.onclick=()=>{state.words.push(+b.dataset.word);save();render()});
+$('clear').onclick=()=>{state.words=[];save();render()};
+$('solve').onclick=()=>{if(state.opened.length===3&&state.words.join(',')==='0,1,2')go(3);else $('feedback').textContent='Открой все улики и расположи фрагменты по номерам: 01, 02, 03.'};
+}
+if(state.step===3)bindCode(C.firstCode,4);
+if(state.step===4){$('report').onclick=$('skip').onclick=()=>go(5)}
+if(state.step===5){const update=()=>{state.dial=+$('dial').value;$('dialheart').style.transform='rotate('+(180+state.dial*30)+'deg)';$('dialvalue').textContent=(state.dial*30)+'°';save()};update();$('dial').oninput=update;$('decode').onclick=()=>{if(state.dial===6)go(6);else $('feedback').textContent='Замок ещё закрыт. Сердечко должно смотреть верхушкой к стрелке.'}}
+if(state.step===6)bindCode(C.finalCode,7);
+if(state.step===7){$('celebrate').onclick=celebrate;celebrate()}
+}
+function celebrate(){ping();if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<28;i++){let p=document.createElement('span');p.className='confetti';p.textContent=['♥','✧','•'][i%3];p.style.left=Math.random()*100+'vw';p.style.color=['#b7586b','#c2a760','#8f9c7c'][i%3];p.style.animationDelay=Math.random()*.7+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),4500)}}
+render();
+</script>
+</body>
+</html>
